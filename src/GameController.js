@@ -18,7 +18,13 @@ const GameController = {
 
   printLottosRequest(game, count) {
     View.printLottos(game.getLottos(), count);
-    View.inputNumbers(Errors.numbersError, (input) => {});
+    this.inputNumbersRequest(game);
+  },
+
+  inputNumbersRequest(game) {
+    View.inputNumbers(Errors.numbersError, (input) => {
+      const number = input.split(",");
+    });
   },
 };
 
