@@ -9,7 +9,10 @@ const GameController = {
   },
 
   inputPurchase(game) {
-    View.inputPurchase(Errors.purchaseError, (input) => {});
+    View.inputPurchase(Errors.purchaseError, (input) => {
+      const count = input / 1000;
+      game.purchase(count);
+    });
   },
 };
 
