@@ -1,3 +1,5 @@
-const Error = {};
+const Errors = {
+  purchaseError() {},
+};
 
-module.exports = Error;
+module.exports = Errors;
