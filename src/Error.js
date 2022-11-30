@@ -9,6 +9,7 @@ const Errors = {
       throw new Error(errorMessage.PURCHASEERROR);
     }
   },
+  numbersError(input) {},
 };
 
 module.exports = Errors;

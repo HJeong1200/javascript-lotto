@@ -16,6 +16,14 @@ const View = {
       Console.print(lotto);
     }
   },
+
+  inputNumbers(errCallback, callback) {
+    Console.print("");
+    Console.readLine(Message.NUMBERS, (input) => {
+      errCallback(input);
+      callback(input);
+    });
+  },
 };
 
 module.exports = View;
