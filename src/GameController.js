@@ -29,8 +29,10 @@ const GameController = {
     });
   },
 
-  inputBonusNumberRequest() {
-    View.inputBonusNumber(Errors.bonusNumberError, (input) => {});
+  inputBonusNumberRequest(game) {
+    View.inputBonusNumber(Errors.bonusNumberError, (input) => {
+      game.setBonusNumber(input);
+    });
   },
 };
 
