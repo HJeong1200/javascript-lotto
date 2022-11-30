@@ -15,16 +15,13 @@ const Errors = {
 
   numbersError(input) {
     const numbers = input.split(",");
-    console.log(numbers);
 
     for (let i = 0; i < numbers.length; i++) {
       numbers[i] = Number(numbers[i]);
     }
 
-    console.log(numbers);
     Errors.isValidNumber(numbers);
     Errors.isDuplicate(numbers);
-    console.log("done");
   },
 
   isValidNumber(arr) {
@@ -44,9 +41,7 @@ const Errors = {
   },
 
   bonusNumberError(number) {
-    console.log(number);
     const bonusNumber = parseInt(number);
-    console.log(bonusNumber);
     if (
       isNaN(bonusNumber) ||
       bonusNumber !== Number(number) ||
