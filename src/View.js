@@ -25,10 +25,10 @@ const View = {
     });
   },
 
-  inputBonusNumber(errCallback, callback) {
+  inputBonusNumber(errCallback, number, callback) {
     Console.print("");
     Console.readLine(Message.BONUSNUMBER, (input) => {
-      errCallback(input);
+      errCallback(input, number);
       callback(input);
     });
   },

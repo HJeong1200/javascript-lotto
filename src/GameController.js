@@ -25,12 +25,12 @@ const GameController = {
     View.inputNumbers(Errors.numbersError, (input) => {
       const number = input.split(",");
       game.setNumber(number);
-      this.inputBonusNumberRequest(game);
+      this.inputBonusNumberRequest(game, number);
     });
   },
 
-  inputBonusNumberRequest(game) {
-    View.inputBonusNumber(Errors.bonusNumberError, (input) => {
+  inputBonusNumberRequest(game, number) {
+    View.inputBonusNumber(Errors.bonusNumberError, number, (input) => {
       game.setBonusNumber(input);
     });
   },

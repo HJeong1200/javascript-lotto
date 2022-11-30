@@ -3,6 +3,8 @@ const errorMessage = {
   VALIDNUMBERERROR: "[ERROR] 1~45 사이의 숫자를 입력해주세요.",
   DUPLICATEERROR: "[ERROR] 중복되지 않는 6개의 숫자를 입력해주세요.",
   BONUSNUMBERERROR: "[ERROR] 1~45 사이의 숫자를 입력해주세요.",
+  DUPLICATEBONUSERROR:
+    "[ERROR] 입력하신 로또 번호와 중복되지 않는 숫자를 입력해주세요.",
 };
 
 const Errors = {
@@ -40,7 +42,7 @@ const Errors = {
     if (numberSet.size !== 6) throw new Error(errorMessage.DUPLICATEERROR);
   },
 
-  bonusNumberError(number) {
+  bonusNumberError(number, arr) {
     const bonusNumber = parseInt(number);
     if (
       isNaN(bonusNumber) ||
@@ -50,6 +52,7 @@ const Errors = {
     ) {
       throw new Error(errorMessage.BONUSNUMBERERROR);
     }
+    if (arr.includes(number)) throw new Error(errorMessage.DUPLICATEBONUSERROR);
   },
 };
 
