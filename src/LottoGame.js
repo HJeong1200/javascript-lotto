@@ -3,6 +3,7 @@ const Lotto = require("./Lotto");
 
 class LottoGame {
   #lottos = [];
+  #numbers;
 
   purchase(count) {
     while (count > 0) {
@@ -17,6 +18,10 @@ class LottoGame {
 
   getLottos() {
     return this.#lottos;
+  }
+
+  setNumber(number) {
+    this.#numbers = number;
   }
 }
 

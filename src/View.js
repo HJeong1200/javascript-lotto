@@ -24,6 +24,14 @@ const View = {
       callback(input);
     });
   },
+
+  inputBonusNumber(errCallback, callback) {
+    Console.print("");
+    Console.readLine(Message.BONUSNUMBER, (input) => {
+      errCallback(input);
+      callback(input);
+    });
+  },
 };
 
 module.exports = View;

@@ -24,7 +24,13 @@ const GameController = {
   inputNumbersRequest(game) {
     View.inputNumbers(Errors.numbersError, (input) => {
       const number = input.split(",");
+      game.setNumber(number);
+      this.inputBonusNumberRequest(game);
     });
+  },
+
+  inputBonusNumberRequest() {
+    View.inputBonusNumber(Errors.bonusNumberError, (input) => {});
   },
 };
 

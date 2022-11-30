@@ -41,6 +41,8 @@ const Errors = {
 
     if (numberSet.size !== 6) throw new Error(errorMessage.DUPLICATEERROR);
   },
+
+  bonusNumberError(number) {},
 };
 
 module.exports = Errors;
