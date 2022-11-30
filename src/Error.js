@@ -2,6 +2,7 @@ const errorMessage = {
   PURCHASEERROR: "[ERROR] 1,000원 단위 숫자를 입력해 주세요.",
   VALIDNUMBERERROR: "[ERROR] 1~45 사이의 숫자를 입력해주세요.",
   DUPLICATEERROR: "[ERROR] 중복되지 않는 6개의 숫자를 입력해주세요.",
+  BONUSNUMBERERROR: "[ERROR] 1~45 사이의 숫자를 입력해주세요.",
 };
 
 const Errors = {
@@ -42,7 +43,19 @@ const Errors = {
     if (numberSet.size !== 6) throw new Error(errorMessage.DUPLICATEERROR);
   },
 
-  bonusNumberError(number) {},
+  bonusNumberError(number) {
+    console.log(number);
+    const bonusNumber = parseInt(number);
+    console.log(bonusNumber);
+    if (
+      isNaN(bonusNumber) ||
+      bonusNumber !== Number(number) ||
+      number < 1 ||
+      number > 45
+    ) {
+      throw new Error(errorMessage.BONUSNUMBERERROR);
+    }
+  },
 };
 
 module.exports = Errors;
