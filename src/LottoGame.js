@@ -14,6 +14,10 @@ class LottoGame {
       count--;
     }
   }
+
+  getLottos() {
+    return this.#lottos;
+  }
 }
 
 module.exports = LottoGame;

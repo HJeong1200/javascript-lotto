@@ -12,7 +12,12 @@ const GameController = {
     View.inputPurchase(Errors.purchaseError, (input) => {
       const count = input / 1000;
       game.purchase(count);
+      this.printLottosRequest(game, count);
     });
+  },
+
+  printLottosRequest(game, count) {
+    View.printLottos(game.getLottos(), count);
   },
 };
 

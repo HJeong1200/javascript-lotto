@@ -8,6 +8,14 @@ const View = {
       callback(input);
     });
   },
+
+  printLottos(lottos, count) {
+    Console.print("");
+    Console.print(Message.printQty(count));
+    for (let lotto of lottos) {
+      Console.print(lotto);
+    }
+  },
 };
 
 module.exports = View;
