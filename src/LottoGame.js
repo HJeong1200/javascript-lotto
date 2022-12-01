@@ -1,5 +1,6 @@
 const { Random } = require("@woowacourse/mission-utils");
 const Lotto = require("./Lotto");
+const { PRIZES } = require("./Message");
 
 class LottoGame {
   #lottos = [];
@@ -16,6 +17,7 @@ class LottoGame {
 
   purchase(count) {
     this.#money = count * 1000;
+
     while (count > 0) {
       const number = Random.pickUniqueNumbersInRange(1, 45, 6);
       number.sort((a, b) => a - b);
@@ -56,10 +58,10 @@ class LottoGame {
     let isCorrectBonus = false;
 
     for (let number of this.#numbers) {
-      if (lotto.includes(Number(number))) correctCount++;
+      if (lotto.includes(number)) correctCount++;
     }
 
-    if (lotto.includes(Number(this.#bonusNumber))) isCorrectBonus = true;
+    if (lotto.includes(this.#bonusNumber)) isCorrectBonus = true;
 
     return [correctCount, isCorrectBonus];
   }
@@ -67,11 +69,11 @@ class LottoGame {
   calcProfit() {
     let profit = 0;
 
-    profit += 5_000 * this.#results["5"];
-    profit += 50_000 * this.#results["4"];
-    profit += 1_500_000 * this.#results["3"];
-    profit += 30_000_000 * this.#results["2"];
-    profit += 2_000_000_000 * this.#results["1"];
+    profit += PRIZES.FIFTH * this.#results["5"];
+    profit += PRIZES.FOURTH * this.#results["4"];
+    profit += PRIZES.THIRD * this.#results["3"];
+    profit += PRIZES.SECOND * this.#results["2"];
+    profit += PRIZES.FIRST * this.#results["1"];
 
     profit = ((profit / this.#money) * 100).toFixed(1).toLocaleString("ko-KR");
 

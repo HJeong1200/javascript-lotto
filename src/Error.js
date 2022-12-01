@@ -1,18 +1,11 @@
-const errorMessage = {
-  PURCHASEERROR: "[ERROR] 1,000원 단위 숫자를 입력해 주세요.",
-  VALIDNUMBERERROR: "[ERROR] 1~45 사이의 숫자를 입력해주세요.",
-  DUPLICATEERROR: "[ERROR] 중복되지 않는 6개의 숫자를 입력해주세요.",
-  BONUSNUMBERERROR: "[ERROR] 1~45 사이의 숫자를 입력해주세요.",
-  DUPLICATEBONUSERROR:
-    "[ERROR] 입력하신 로또 번호와 중복되지 않는 숫자를 입력해주세요.",
-};
+const { ERROR } = require("./Message");
 
 const Errors = {
   purchaseError(input) {
     const money = Number(input);
     if (money === 0) throw new Error();
     if (isNaN(money) || money % 1000) {
-      throw new Error(errorMessage.PURCHASEERROR);
+      throw new Error(ERROR.PURCHASE);
     }
   },
 
@@ -32,7 +25,7 @@ const Errors = {
       const number = parseInt(el);
 
       if (isNaN(number) || number !== el || number < 1 || number > 45) {
-        throw new Error(errorMessage.VALIDNUMBERERROR);
+        throw new Error(ERROR.VALIDNUMBER);
       }
     }
   },
@@ -40,7 +33,7 @@ const Errors = {
   isDuplicate(arr) {
     const numberSet = new Set(arr);
 
-    if (numberSet.size !== 6) throw new Error(errorMessage.DUPLICATEERROR);
+    if (numberSet.size !== 6) throw new Error(ERROR.DUPLICATE);
   },
 
   bonusNumberError(number, arr) {
@@ -51,9 +44,9 @@ const Errors = {
       number < 1 ||
       number > 45
     ) {
-      throw new Error(errorMessage.BONUSNUMBERERROR);
+      throw new Error(ERROR.BONUSNUMBER);
     }
-    if (arr.includes(number)) throw new Error(errorMessage.DUPLICATEBONUSERROR);
+    if (arr.includes(number)) throw new Error(ERROR.DUPLICATEBONUS);
   },
 };
 

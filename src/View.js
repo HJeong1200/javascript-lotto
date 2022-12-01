@@ -3,7 +3,7 @@ const Message = require("./Message");
 
 const View = {
   inputPurchase(errCallback, callback) {
-    Console.readLine(Message.PURCHASE, (input) => {
+    Console.readLine(Message.REQUEST.PURCHASE, (input) => {
       errCallback(input);
       callback(input);
     });
@@ -19,7 +19,7 @@ const View = {
 
   inputNumbers(errCallback, callback) {
     Console.print("");
-    Console.readLine(Message.NUMBERS, (input) => {
+    Console.readLine(Message.REQUEST.NUMBERS, (input) => {
       errCallback(input);
       callback(input);
     });
@@ -27,7 +27,7 @@ const View = {
 
   inputBonusNumber(errCallback, number, callback) {
     Console.print("");
-    Console.readLine(Message.BONUSNUMBER, (input) => {
+    Console.readLine(Message.REQUEST.BONUSNUMBER, (input) => {
       errCallback(input, number);
       callback(input);
     });

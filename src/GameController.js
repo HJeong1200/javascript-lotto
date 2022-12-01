@@ -4,46 +4,51 @@ const Message = require("./Message");
 const View = require("./View");
 const { Console } = require("@woowacourse/mission-utils");
 
-const GameController = {
-  start() {
-    const game = new LottoGame();
-    this.inputPurchase(game);
-  },
+class GameController {
+  #game;
 
-  inputPurchase(game) {
+  constructor() {
+    this.#game = new LottoGame();
+  }
+
+  start() {
+    this.inputPurchaseRequest();
+  }
+
+  inputPurchaseRequest() {
     View.inputPurchase(Errors.purchaseError, (input) => {
       const count = input / 1000;
-      game.purchase(count);
-      this.printLottosRequest(game, count);
+      this.#game.purchase(count);
+      this.printLottosRequest(count);
     });
-  },
+  }
 
-  printLottosRequest(game, count) {
-    View.printLottos(game.getLottos(), count);
-    this.inputNumbersRequest(game);
-  },
+  printLottosRequest(count) {
+    View.printLottos(this.#game.getLottos(), count);
+    this.inputNumbersRequest();
+  }
 
-  inputNumbersRequest(game) {
+  inputNumbersRequest() {
     View.inputNumbers(Errors.numbersError, (input) => {
-      const number = input.split(",");
-      game.setNumber(number);
-      this.inputBonusNumberRequest(game, number);
+      const number = input.split(",").map((el) => Number(el));
+      this.#game.setNumber(number);
+      this.inputBonusNumberRequest(number);
     });
-  },
+  }
 
-  inputBonusNumberRequest(game, number) {
+  inputBonusNumberRequest(number) {
     View.inputBonusNumber(Errors.bonusNumberError, number, (input) => {
-      game.setBonusNumber(input);
-      this.outputResultRequest(game);
+      this.#game.setBonusNumber(Number(input));
+      this.outputResultRequest();
     });
-  },
+  }
 
-  outputResultRequest(game) {
-    const [results, profit] = game.calcResult();
+  outputResultRequest() {
+    const [results, profit] = this.#game.calcResult();
     const finalResult = Message.finalResult(results, profit);
     View.printResult(finalResult);
     Console.close();
-  },
-};
+  }
+}
 
 module.exports = GameController;

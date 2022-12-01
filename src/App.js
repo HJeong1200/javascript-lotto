@@ -2,7 +2,8 @@ const GameController = require("./GameController");
 
 class App {
   play() {
-    GameController.start();
+    const gameController = new GameController();
+    gameController.start();
   }
 }
 
