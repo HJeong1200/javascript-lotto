@@ -32,6 +32,13 @@ const View = {
       callback(input);
     });
   },
+
+  printResult(arr) {
+    Console.print("");
+    for (let result of arr) {
+      Console.print(result);
+    }
+  },
 };
 
 module.exports = View;

@@ -1,6 +1,8 @@
 const Errors = require("./Error");
 const LottoGame = require("./LottoGame");
+const Message = require("./Message");
 const View = require("./View");
+const { Console } = require("@woowacourse/mission-utils");
 
 const GameController = {
   start() {
@@ -32,7 +34,15 @@ const GameController = {
   inputBonusNumberRequest(game, number) {
     View.inputBonusNumber(Errors.bonusNumberError, number, (input) => {
       game.setBonusNumber(input);
+      this.outputResultRequest(game);
     });
+  },
+
+  outputResultRequest(game) {
+    const [results, profit] = game.calcResult();
+    const finalResult = Message.finalResult(results, profit);
+    View.printResult(finalResult);
+    Console.close();
   },
 };
 
