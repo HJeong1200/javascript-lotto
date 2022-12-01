@@ -10,6 +10,7 @@ const errorMessage = {
 const Errors = {
   purchaseError(input) {
     const money = Number(input);
+    if (money === 0) throw new Error();
     if (isNaN(money) || money % 1000) {
       throw new Error(errorMessage.PURCHASEERROR);
     }
