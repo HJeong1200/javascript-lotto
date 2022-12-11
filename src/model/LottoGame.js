@@ -1,6 +1,6 @@
 const Lotto = require("./Lotto");
 const { Random } = require("@woowacourse/mission-utils");
-const { GameResult, Money } = require("../constants/constants");
+const { GameResult, Money, ErrorMessage } = require("../constants/constants");
 
 class LottoGame {
   #allLottos;
@@ -40,7 +40,8 @@ class LottoGame {
   }
 
   setBonusNumber(input) {
-    if (this.#winNumber.includes(input)) throw new Error();
+    if (this.#winNumber.includes(input))
+      throw new Error(ErrorMessage.DUPLICATEBONUS);
     this.#bonusNumber = input;
   }
 

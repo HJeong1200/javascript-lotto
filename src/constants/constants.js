@@ -6,7 +6,15 @@ const Message = {
   result: "\n당첨 통계\n---",
 };
 
-const ErrorMessage = {};
+const ERROR = "[ERROR]";
+
+const ErrorMessage = {
+  BUYLOTTO: ERROR + " 로또는 1,000원 단위로 구매 가능합니다.",
+  VALIDNUMBER: ERROR + " 1 ~ 45 사이의 정수를 입력해주세요.",
+  LOTTOLENGTH: ERROR + " 6개의 중복되지 않는 숫자를 입력해주세요.",
+  DUPLICATEBONUS:
+    ERROR + " 입력하신 로또번호와 중복되지 않는 숫자를 입력해주세요.",
+};
 
 const GameResult = {
   fifth: 0,
