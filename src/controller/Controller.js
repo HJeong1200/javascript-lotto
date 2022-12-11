@@ -35,7 +35,9 @@ class Controller {
   }
 
   outputResult() {
-    this.#game.calcResults();
+    const gameResult = this.#game.calcResults();
+    const profit = this.#game.calcProfit();
+    OutputView.result(gameResult, profit);
   }
 }
 

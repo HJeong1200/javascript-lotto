@@ -1,6 +1,6 @@
 const Lotto = require("./Lotto");
 const { Random } = require("@woowacourse/mission-utils");
-const { GameResult } = require("../constants/constants");
+const { GameResult, Money } = require("../constants/constants");
 
 class LottoGame {
   #allLottos;
@@ -53,7 +53,7 @@ class LottoGame {
     }
 
     this.setGameResult(resultArr);
-    console.log(this.#gameResult);
+    return this.#gameResult;
   }
 
   countMatch(lotto) {
@@ -70,12 +70,22 @@ class LottoGame {
 
   setGameResult(arr) {
     for (let count of arr) {
-      if (count === 3) this.#gameResult[5]++;
-      if (count === 4) this.#gameResult[4]++;
-      if (count === 5) this.#gameResult[3]++;
-      if (count === 15) this.#gameResult[2]++;
-      if (count === 6) this.#gameResult[1]++;
+      if (count === 3) this.#gameResult.fifth++;
+      if (count === 4) this.#gameResult.fourth++;
+      if (count === 5) this.#gameResult.third++;
+      if (count === 15) this.#gameResult.second++;
+      if (count === 6) this.#gameResult.first++;
     }
+  }
+
+  calcProfit() {
+    let winMoney = 0;
+
+    for (let rank in this.#gameResult) {
+      winMoney += Money[rank] * this.#gameResult[rank];
+    }
+
+    return ((winMoney / this.#money) * 100).toFixed(1);
   }
 }
 
