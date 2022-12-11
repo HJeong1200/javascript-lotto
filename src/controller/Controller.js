@@ -30,7 +30,12 @@ class Controller {
   inputBonusNumber() {
     InputView.bonusNumber(Errors.bonusNumber, (input) => {
       this.#game.setBonusNumber(input);
+      this.outputResult();
     });
+  }
+
+  outputResult() {
+    this.#game.calcResults();
   }
 }
 

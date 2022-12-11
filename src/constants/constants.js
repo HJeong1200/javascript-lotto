@@ -5,5 +5,12 @@ const Message = {
   bonusNumber: "\n보너스 번호를 입력해 주세요.\n",
 };
 const ErrorMessage = {};
+const GameResult = {
+  5: 0,
+  4: 0,
+  3: 0,
+  2: 0,
+  1: 0,
+};
 
-module.exports = { Message, ErrorMessage };
+module.exports = { Message, ErrorMessage, GameResult };
