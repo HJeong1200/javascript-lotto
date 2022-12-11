@@ -1,6 +1,6 @@
 const Errors = {
   buyLottoError(input) {
-    if (input % 1000 || isNaN(input % 1000)) {
+    if (input % 1000 || isNaN(input % 1000) || input <= 0) {
       throw new Error();
     }
   },
