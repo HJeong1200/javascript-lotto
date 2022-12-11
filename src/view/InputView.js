@@ -9,6 +9,14 @@ const InputView = {
       callback(input);
     });
   },
+
+  winNumber(errorCallback, callback) {
+    Console.readLine(Message.winNumber, (input) => {
+      input = input.split(",").map((el) => Number(el));
+      errorCallback(input);
+      callback(input);
+    });
+  },
 };
 
 module.exports = InputView;

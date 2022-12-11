@@ -17,6 +17,11 @@ class Controller {
     const qty = this.#game.getMoney() / 1000;
     const allLottos = this.#game.getAllLottos();
     OutputView.showLottos(qty, allLottos);
+    this.inputWinNumber();
+  }
+
+  inputWinNumber() {
+    InputView.winNumber(Errors.winNumber, (input) => {});
   }
 }
 
