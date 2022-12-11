@@ -23,6 +23,13 @@ class Controller {
   inputWinNumber() {
     InputView.winNumber(Errors.winNumber, (input) => {
       this.#game.setWinNumber(input);
+      this.inputBonusNumber();
+    });
+  }
+
+  inputBonusNumber() {
+    InputView.bonusNumber(Errors.bonusNumber, (input) => {
+      this.#game.setBonusNumber(input);
     });
   }
 }

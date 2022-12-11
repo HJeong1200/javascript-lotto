@@ -5,6 +5,7 @@ class LottoGame {
   #allLottos;
   #money;
   #winNumber;
+  #bonusNumber;
 
   constructor(money) {
     this.#money = money;
@@ -33,6 +34,12 @@ class LottoGame {
 
   setWinNumber(input) {
     this.#winNumber = input;
+  }
+
+  setBonusNumber(input) {
+    if (this.#winNumber.includes(input)) throw new Error();
+    this.#bonusNumber = input;
+    console.log(this.#bonusNumber);
   }
 }
 

@@ -17,6 +17,14 @@ const InputView = {
       callback(input);
     });
   },
+
+  bonusNumber(errorCallback, callback) {
+    Console.readLine(Message.bonusNumber, (input) => {
+      input = Number(input);
+      errorCallback(input);
+      callback(input);
+    });
+  },
 };
 
 module.exports = InputView;
