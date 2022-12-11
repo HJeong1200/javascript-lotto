@@ -4,6 +4,7 @@ const { Random } = require("@woowacourse/mission-utils");
 class LottoGame {
   #allLottos;
   #money;
+  #winNumber;
 
   constructor(money) {
     this.#money = money;
@@ -28,6 +29,10 @@ class LottoGame {
 
   getMoney() {
     return this.#money;
+  }
+
+  setWinNumber(input) {
+    this.#winNumber = input;
   }
 }
 

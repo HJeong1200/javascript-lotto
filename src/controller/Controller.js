@@ -21,7 +21,9 @@ class Controller {
   }
 
   inputWinNumber() {
-    InputView.winNumber(Errors.winNumber, (input) => {});
+    InputView.winNumber(Errors.winNumber, (input) => {
+      this.#game.setWinNumber(input);
+    });
   }
 }
 
