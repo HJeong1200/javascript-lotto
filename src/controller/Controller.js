@@ -3,9 +3,13 @@ const LottoGame = require("../model/LottoGame");
 const InputView = require("../view/InputView");
 
 class Controller {
+  #game;
+
   buyLotto() {
     InputView.buyLotto(Errors.buyLottoError, (input) => {
-      console.log(input);
+      this.#game = new LottoGame(input);
+      console.log(this.#game.getAllLottos());
+      console.log(this.#game.getMoney());
     });
   }
 }
