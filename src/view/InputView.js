@@ -3,7 +3,7 @@ const { Message } = require("../constants/constants");
 
 const InputView = {
   buyLotto(errorCallback, callback) {
-    Console.readLine(Message.buyLottoMessage, (input) => {
+    Console.readLine(Message.buyLotto, (input) => {
       input = Number(input);
       errorCallback(input);
       callback(input);

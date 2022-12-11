@@ -1,6 +1,7 @@
 const Errors = require("../errors/Errors");
 const LottoGame = require("../model/LottoGame");
 const InputView = require("../view/InputView");
+const OutputView = require("../view/OutputView");
 
 class Controller {
   #game;
@@ -8,9 +9,14 @@ class Controller {
   buyLotto() {
     InputView.buyLotto(Errors.buyLottoError, (input) => {
       this.#game = new LottoGame(input);
-      console.log(this.#game.getAllLottos());
-      console.log(this.#game.getMoney());
+      this.showLottos();
     });
+  }
+
+  showLottos() {
+    const qty = this.#game.getMoney() / 1000;
+    const allLottos = this.#game.getAllLottos();
+    OutputView.showLottos(qty, allLottos);
   }
 }
 
