@@ -3,7 +3,7 @@ const { Message } = require("../constants/constants");
 
 const InputView = {
   buyLotto(errorCallback, callback) {
-    Console.readLine(Message.buyLotto, (input) => {
+    Console.readLine(Message.BUYLOTTO, (input) => {
       input = Number(input);
       errorCallback(input);
       callback(input);
@@ -11,7 +11,7 @@ const InputView = {
   },
 
   winNumber(errorCallback, callback) {
-    Console.readLine(Message.winNumber, (input) => {
+    Console.readLine(Message.WINNUMBER, (input) => {
       input = input.split(",").map((el) => Number(el));
       errorCallback(input);
       callback(input);
@@ -19,7 +19,7 @@ const InputView = {
   },
 
   bonusNumber(errorCallback, callback) {
-    Console.readLine(Message.bonusNumber, (input) => {
+    Console.readLine(Message.BONUSNUMBER, (input) => {
       input = Number(input);
       errorCallback(input);
       callback(input);
